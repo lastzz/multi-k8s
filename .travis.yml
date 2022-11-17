@@ -13,7 +13,7 @@ after_success:
   - docker build -t lastzz/multi-client ./client
   - docker build -t lastzz/multi-nginx ./nginx
   - docker build -t lastzz/multi-server ./server
-  - docker build -t lastzz/muti-worker ./worker
+  - docker build -t lastzz/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
