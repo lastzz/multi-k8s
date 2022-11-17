@@ -4,16 +4,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t stephengrider/react-test -f ./client/Dcckerfile.dev
+  - docker build -t lastzz/react-test -f ./client/Dcckerfile.dev
 
 script:
   - docker run -e CI=true lastzz/react-test npm run test
 
 after_success:
-  - docker build -t stephengrider/multi-client ./client
-  - docker build -t stephengrider/multi-nginx ./nginx
-  - docker build -t stephengrider/multi-server ./server
-  - docker build -t stephengrider/muti-worker ./worker
+  - docker build -t lastzz/multi-client ./client
+  - docker build -t lastzz/multi-nginx ./nginx
+  - docker build -t lastzz/multi-server ./server
+  - docker build -t lastzz/muti-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
