@@ -8,7 +8,7 @@ before_install:
   - docker build -t lastzz/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true lastzz/react-test npm run test
+  - docker run -e CI=true stephengrider/react-test npm test
 
 after_success:
   - docker build -t lastzz/multi-client ./client
@@ -25,7 +25,7 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: 'ap-southeast-1'
+  region: 'us-east-1'
   app: 'multi-docker'
   env: 'MultiDocker-env'
   bucket_name: 'elasticbeanstalk-ap-southeast-1-275896992647'
