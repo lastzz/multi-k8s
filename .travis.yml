@@ -8,7 +8,7 @@ before_install:
   - docker build -t lastzz/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true lastzz/react-test npm test
+  - docker run -e CI=true lastzz/react-test npm run test
 
 after_success:
   - docker build -t lastzz/multi-client ./client
